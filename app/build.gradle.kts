@@ -1,20 +1,12 @@
 plugins {
-    alias(libs.plugins.androidApplication)
-    alias(libs.plugins.jetbrainsKotlinAndroid)
     alias(libs.plugins.mapsplatform.secrets.plugin)
+    alias(libs.plugins.vincicent.android.application)
 }
 
 android {
     namespace = "com.vincicent.runapp"
-    compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.vincicent.runapp"
-        minSdk = 24
-        targetSdk = 34
-        versionCode = 1
-        versionName = "0.1.0" // X.Y.Z; X = Major, Y = minor, Z = Patch level
-
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
             useSupportLibrary = true
@@ -29,13 +21,6 @@ android {
                 "proguard-rules.pro"
             )
         }
-    }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
-    }
-    kotlinOptions {
-        jvmTarget = "1.8"
     }
     buildFeatures {
         compose = true

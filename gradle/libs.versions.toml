@@ -41,11 +41,11 @@ annotation = "1.7.1"
 
 # Project versions
 projectApplicationId = "com.vincicent.runapp"
-projectVersionName = "1.0"
 projectMinSdkVersion = "25"
 projectTargetSdkVersion = "34"
 projectCompileSdkVersion = "34"
-projectVersionCode = "1"
+projectVersionName = "0.1.0" # X.Y.Z; X = Major, Y = minor, Z = Patch level
+projectVersionCode =  "1"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -117,3 +117,5 @@ room = { id = "androidx.room", version.ref = "room" }
 jetbrainsKotlinJvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "org-jetbrains-kotlin-jvm" }
 androidDynamicFeature = { id = "com.android.dynamic-feature", version.ref = "agp" }
 mapsplatform-secrets-plugin = { id = "com.google.android.libraries.mapsplatform.secrets-gradle-plugin", version.ref = "secretsPlugin"}
+
+vincicent-android-application = { id = "vincicent.android.application", version = "unspecified"}
