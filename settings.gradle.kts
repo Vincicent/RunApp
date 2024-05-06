@@ -21,3 +21,6 @@ dependencyResolutionManagement {
 
 rootProject.name = "RunApp"
 include(":app")
+include(":auth:domain")
+include(":auth:data")
+include(":auth:presentation")
