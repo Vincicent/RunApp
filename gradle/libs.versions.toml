@@ -122,3 +122,21 @@ runapp-android-application = { id = "runapp.android.application", version = "uns
 runapp-android-application-compose = { id = "runapp.android.application.compose", version = "unspecified"}
 runapp-android-library = { id = "runapp.android.library", version = "unspecified"}
 runapp-android-library-compose = { id = "runapp.android.library.compose", version = "unspecified"}
+runapp-android-feature-ui = { id = "runapp.android.feature.ui", version = "unspecified"}
+
+[bundles]
+compose = [
+    "androidx-activity-compose",
+    "androidx-lifecycle-runtime-compose",
+    "androidx-lifecycle-viewmodel-compose",
+    "androidx-compose-material3",
+    "androidx-compose-ui",
+    "androidx-compose-ui-graphics",
+    "androidx-compose-ui-tooling-preview",
+]
+compose-debug = [
+    "androidx-compose-ui-tooling",
+    "androidx-compose-ui-test-manifest",
+]
+koin = ["koin-core", "koin-android", "koin-android-workmanager"]
+koin-compose = ["koin-core", "koin-android", "koin-android-workmanager", "koin-androidx-compose"]
