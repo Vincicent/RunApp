@@ -1,5 +1,5 @@
 plugins {
-    alias(libs.plugins.vincicent.android.application.compose)
+    alias(libs.plugins.runapp.android.application.compose)
     alias(libs.plugins.mapsplatform.secrets.plugin)
 }
 

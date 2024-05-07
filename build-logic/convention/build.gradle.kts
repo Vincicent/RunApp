@@ -17,12 +17,16 @@ dependencies {
 gradlePlugin {
     plugins {
         register("androidApplication") {
-            id = "vincicent.android.application"
+            id = "runapp.android.application"
             implementationClass = "AndroidApplicationConventionPlugin"
         }
         register("androidApplicationCompose") {
-            id = "vincicent.android.application.compose"
+            id = "runapp.android.application.compose"
             implementationClass = "AndroidApplicationComposeConventionPlugin"
+        }
+        register("androidLibrary") {
+            id = "runapp.android.library"
+            implementationClass = "AndroidLibraryConventionPlugin"
         }
     }
 }
