@@ -119,3 +119,4 @@ androidDynamicFeature = { id = "com.android.dynamic-feature", version.ref = "agp
 mapsplatform-secrets-plugin = { id = "com.google.android.libraries.mapsplatform.secrets-gradle-plugin", version.ref = "secretsPlugin"}
 
 vincicent-android-application = { id = "vincicent.android.application", version = "unspecified"}
+vincicent-android-application-compose = { id = "vincicent.android.application.compose", version = "unspecified"}

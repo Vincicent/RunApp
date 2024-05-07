@@ -1,6 +1,6 @@
 plugins {
+    alias(libs.plugins.vincicent.android.application.compose)
     alias(libs.plugins.mapsplatform.secrets.plugin)
-    alias(libs.plugins.vincicent.android.application)
 }
 
 android {
@@ -11,12 +11,6 @@ android {
         vectorDrawables {
             useSupportLibrary = true
         }
-    }
-    buildFeatures {
-        compose = true
-    }
-    composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.1"
     }
     packaging {
         resources {
