@@ -2,6 +2,7 @@ package com.vincicent.auth.presentation.register
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.text2.input.TextFieldState
+import com.vincicent.auth.domain.PasswordValidationState
 
 data class RegisterState @OptIn(ExperimentalFoundationApi::class) constructor(
     val email: TextFieldState = TextFieldState(),
