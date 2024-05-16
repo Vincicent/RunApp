@@ -29,6 +29,7 @@ import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.vincicent.auth.domain.PasswordValidationState
 import com.vincicent.auth.domain.UserDataValidator
 import com.vincicent.auth.presentation.R
 import com.vincicent.core.presentation.designsystem.CheckIcon
