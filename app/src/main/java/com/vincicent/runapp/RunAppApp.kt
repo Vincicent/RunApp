@@ -3,6 +3,7 @@ package com.vincicent.runapp
 import android.app.Application
 import com.vincicent.auth.data.di.authDataModule
 import com.vincicent.auth.presentation.di.authViewModelModule
+import com.vincicent.core.data.di.coreDataModule
 import com.vincicent.runapp.di.appModule
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.SupervisorJob
@@ -26,7 +27,8 @@ class RunAppApp: Application() {
             modules(
                 appModule,
                 authDataModule,
-                authViewModelModule
+                authViewModelModule,
+                coreDataModule
             )
         }
     }
