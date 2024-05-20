@@ -1,6 +1,5 @@
 package com.vincicent.runapp.navigation
 
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
@@ -10,6 +9,7 @@ import androidx.navigation.navigation
 import com.vincicent.auth.presentation.intro.IntroScreenRoot
 import com.vincicent.auth.presentation.login.LoginScreenRoot
 import com.vincicent.auth.presentation.register.RegisterScreenRoot
+import com.vincicent.run.presentation.run_overview.RunOverviewScreenRoot
 
 @Composable
 fun NavigationRoot(
@@ -85,7 +85,7 @@ private fun NavGraphBuilder.runGraph(navController: NavHostController) {
         route = "run"
     ) {
         composable("run_overview") {
-            Text(text = "Run overview")
+            RunOverviewScreenRoot()
         }
     }
 }
