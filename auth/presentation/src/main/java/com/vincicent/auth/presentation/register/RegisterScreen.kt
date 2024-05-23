@@ -84,7 +84,13 @@ fun RegisterScreenRoot(
     }
     RegisterScreen(
         state = viewModel.state,
-        onAction = viewModel::onAction
+        onAction = { registerAction ->
+            when (registerAction) {
+                RegisterAction.OnLoginClick -> onSignInClick()
+                else -> Unit
+            }
+            viewModel.onAction(registerAction)
+        }
     )
 }
 
@@ -98,7 +104,10 @@ fun RegisterScreen(
             modifier = Modifier
                 .verticalScroll(rememberScrollState())
                 .fillMaxSize()
-                .padding(horizontal = 16.dp, vertical = 32.dp)
+                .padding(
+                    horizontal = 16.dp,
+                    vertical = 32.dp
+                )
                 .padding(top = 16.dp)
         ) {
             Text(
