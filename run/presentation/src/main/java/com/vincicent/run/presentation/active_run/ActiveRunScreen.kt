@@ -28,6 +28,7 @@ import androidx.compose.ui.unit.dp
 import com.vincicent.core.presentation.designsystem.RunAppTheme
 import com.vincicent.core.presentation.designsystem.StartIcon
 import com.vincicent.core.presentation.designsystem.StopIcon
+import com.vincicent.core.presentation.designsystem.components.RunAppActionButton
 import com.vincicent.core.presentation.designsystem.components.RunAppDialog
 import com.vincicent.core.presentation.designsystem.components.RunAppFloatingActionButton
 import com.vincicent.core.presentation.designsystem.components.RunAppOutlinedActionButton
@@ -165,6 +166,38 @@ fun ActiveRunScreen(
                     .fillMaxWidth()
             )
         }
+    }
+
+    if (!state.shouldTrack && state.hasStartedRunning) {
+        RunAppDialog(
+            title = stringResource(id = R.string.running_is_paused) ,
+            onDismiss = {
+                onAction(ActiveRunAction.OnResumeRunClick)
+            },
+            description = stringResource(id = R.string.resume_or_finish_run),
+            primaryButton = {
+                RunAppActionButton(
+                    text = stringResource(id = R.string.resume),
+                    isLoading = false,
+                    onClick = {
+                        onAction(ActiveRunAction.OnResumeRunClick)
+                    },
+                    modifier = Modifier
+                        .weight(1f)
+                )
+            },
+            secondaryButton = {
+                RunAppActionButton(
+                    text = stringResource(id = R.string.finish),
+                    isLoading = state.isSavingRun,
+                    onClick = {
+                        onAction(ActiveRunAction.OnFinishRunClick)
+                    },
+                    modifier = Modifier
+                        .weight(1f)
+                )
+            }
+        )
     }
 
     if (state.showLocationRationale || state.showPostNotificationRationale) {
