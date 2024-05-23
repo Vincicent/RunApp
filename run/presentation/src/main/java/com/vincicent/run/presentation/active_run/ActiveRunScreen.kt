@@ -35,6 +35,7 @@ import com.vincicent.core.presentation.designsystem.components.RunAppScaffold
 import com.vincicent.core.presentation.designsystem.components.RunAppToolbar
 import com.vincicent.run.presentation.R
 import com.vincicent.run.presentation.active_run.components.RunDataCard
+import com.vincicent.run.presentation.maps.TrackerMap
 import com.vincicent.run.presentation.util.hasLocationPermission
 import com.vincicent.run.presentation.util.hasPostNotificationPermission
 import com.vincicent.run.presentation.util.shouldShowLocationPermissionRationale
@@ -147,6 +148,14 @@ fun ActiveRunScreen(
                 .fillMaxSize()
                 .background(MaterialTheme.colorScheme.surface)
         ) {
+            TrackerMap(
+                isRunFinished = state.isRunFinished,
+                currentLocation = state.currentLocation,
+                locations = state.runData.locations,
+                onSnapshot = {},
+                modifier = Modifier
+                    .fillMaxSize()
+            )
             RunDataCard(
                 elapsedTime = state.elapsedTime,
                 runData = state.runData,
