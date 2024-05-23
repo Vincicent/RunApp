@@ -36,6 +36,7 @@ import com.vincicent.core.presentation.designsystem.components.RunAppScaffold
 import com.vincicent.core.presentation.designsystem.components.RunAppToolbar
 import com.vincicent.run.presentation.R
 import com.vincicent.run.presentation.active_run.components.RunDataCard
+import com.vincicent.run.presentation.active_run.service.ActiveRunService
 import com.vincicent.run.presentation.maps.TrackerMap
 import com.vincicent.run.presentation.util.hasLocationPermission
 import com.vincicent.run.presentation.util.hasPostNotificationPermission
@@ -45,10 +46,12 @@ import org.koin.androidx.compose.koinViewModel
 
 @Composable
 fun ActiveRunScreenRoot(
+    onServiceToggle: (isServiceRunning: Boolean) -> Unit,
     viewModel: ActiveRunViewModel = koinViewModel()
 ) {
     ActiveRunScreen(
         state = viewModel.state,
+        onServiceToggle = onServiceToggle,
         onAction = viewModel::onAction
     )
 }
@@ -56,6 +59,7 @@ fun ActiveRunScreenRoot(
 @Composable
 fun ActiveRunScreen(
     state: ActiveRunState,
+    onServiceToggle: (isServiceRunning: Boolean) -> Unit,
     onAction: (ActiveRunAction) -> Unit
 ) {
     val context = LocalContext.current
@@ -111,6 +115,18 @@ fun ActiveRunScreen(
 
         if(!showLocationRationale && !showPostNotificationRationale) {
             permissionLauncher.requestRunAppPermissions(context)
+        }
+    }
+
+    LaunchedEffect(key1 = state.isRunFinished) {
+        if (state.isRunFinished) {
+            onServiceToggle(false)
+        }
+    }
+    
+    LaunchedEffect(key1 = state.shouldTrack) {
+        if (context.hasLocationPermission() && state.shouldTrack && !ActiveRunService.isServiceActive) {
+            onServiceToggle(true)
         }
     }
 
@@ -264,6 +280,7 @@ private fun ActiveRunScreenPreview() {
     RunAppTheme {
         ActiveRunScreen(
             state = ActiveRunState(),
+            onServiceToggle = {},
             onAction = {}
         )
     }
