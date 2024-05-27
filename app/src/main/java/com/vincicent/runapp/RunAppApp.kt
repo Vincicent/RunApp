@@ -6,6 +6,7 @@ import com.vincicent.auth.presentation.di.authViewModelModule
 import com.vincicent.core.data.di.coreDataModule
 import com.vincicent.core.database.di.databaseModule
 import com.vincicent.run.location.di.locationModule
+import com.vincicent.run.network.di.networkModule
 import com.vincicent.run.presentation.di.runPresentationModule
 import com.vincicent.runapp.di.appModule
 import kotlinx.coroutines.CoroutineScope
@@ -34,7 +35,8 @@ class RunAppApp: Application() {
                 coreDataModule,
                 runPresentationModule,
                 locationModule,
-                databaseModule
+                databaseModule,
+                networkModule
             )
         }
     }
