@@ -5,6 +5,7 @@ import com.vincicent.auth.data.di.authDataModule
 import com.vincicent.auth.presentation.di.authViewModelModule
 import com.vincicent.core.data.di.coreDataModule
 import com.vincicent.core.database.di.databaseModule
+import com.vincicent.run.data.di.runDataModule
 import com.vincicent.run.location.di.locationModule
 import com.vincicent.run.network.di.networkModule
 import com.vincicent.run.presentation.di.runPresentationModule
@@ -13,6 +14,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.SupervisorJob
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
+import org.koin.androidx.workmanager.koin.workManagerFactory
 import org.koin.core.context.startKoin
 import timber.log.Timber
 
@@ -28,6 +30,7 @@ class RunAppApp: Application() {
         startKoin {
             androidLogger()
             androidContext(this@RunAppApp)
+            workManagerFactory()
             modules(
                 appModule,
                 authDataModule,
@@ -36,7 +39,8 @@ class RunAppApp: Application() {
                 runPresentationModule,
                 locationModule,
                 databaseModule,
-                networkModule
+                networkModule,
+                runDataModule
             )
         }
     }
