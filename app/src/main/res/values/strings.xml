@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">RunApp</string>
+    <string name="title_dynamicfeature">Analytics</string>
 </resources>

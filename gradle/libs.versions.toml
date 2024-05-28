@@ -124,6 +124,7 @@ runapp-android-library = { id = "runapp.android.library", version = "unspecified
 runapp-android-library-compose = { id = "runapp.android.library.compose", version = "unspecified"}
 runapp-android-feature-ui = { id = "runapp.android.feature.ui", version = "unspecified"}
 runapp-android-room = { id = "runapp.android.room", version = "unspecified"}
+runapp-android-dynamic-feature = { id = "runapp.android.dynamic.feature", version = "unspecified"}
 runapp-jvm-library = { id = "runapp.jvm.library", version = "unspecified"}
 runapp-jvm-ktor = { id = "runapp.jvm.ktor", version = "unspecified"}
 
