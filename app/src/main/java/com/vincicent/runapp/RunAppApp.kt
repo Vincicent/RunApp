@@ -1,6 +1,8 @@
 package com.vincicent.runapp
 
 import android.app.Application
+import android.content.Context
+import com.google.android.play.core.splitcompat.SplitCompat
 import com.vincicent.auth.data.di.authDataModule
 import com.vincicent.auth.presentation.di.authViewModelModule
 import com.vincicent.core.data.di.coreDataModule
@@ -43,5 +45,10 @@ class RunAppApp: Application() {
                 runDataModule
             )
         }
+    }
+
+    override fun attachBaseContext(base: Context?) {
+        super.attachBaseContext(base)
+        SplitCompat.install(this)
     }
 }

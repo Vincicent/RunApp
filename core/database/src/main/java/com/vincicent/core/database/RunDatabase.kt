@@ -2,6 +2,7 @@ package com.vincicent.core.database
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
+import com.vincicent.core.database.dao.AnalyticsDao
 import com.vincicent.core.database.dao.RunDao
 import com.vincicent.core.database.dao.RunPendingSyncDao
 import com.vincicent.core.database.entity.DeletedRunSyncEntity
@@ -12,7 +13,7 @@ import com.vincicent.core.database.entity.RunPendingSyncEntity
     entities = [
         RunEntity::class,
         RunPendingSyncEntity::class,
-        DeletedRunSyncEntity::class
+        DeletedRunSyncEntity::class,
     ],
     version = 1
 )
@@ -20,4 +21,5 @@ abstract class RunDatabase : RoomDatabase() {
 
     abstract val runDao: RunDao
     abstract val runPendingSyncDao: RunPendingSyncDao
+    abstract val analyticsDao: AnalyticsDao
 }
