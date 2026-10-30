@@ -1,0 +1,18 @@
+package com.vincicent.run.presentation.active_run
+
+sealed interface ActiveRunAction {
+    data object OnToggleRunClick: ActiveRunAction
+    data object OnFinishRunClick: ActiveRunAction
+    data object OnResumeRunClick: ActiveRunAction
+    data object OnBackClick: ActiveRunAction
+    data class SubmitLocationPermissionInfo(
+        val acceptedLocationPermission: Boolean,
+        val showLocationRationale: Boolean
+    ): ActiveRunAction
+    data class SubmitPostNotificationPermissionInfo(
+        val acceptedPostNotificationPermission: Boolean,
+        val showPostNotificationRationale: Boolean
+    ): ActiveRunAction
+    data object DismissRationaleDialog: ActiveRunAction
+    class OnRunProcessed(val mapPictureBytes: ByteArray): ActiveRunAction
+}
