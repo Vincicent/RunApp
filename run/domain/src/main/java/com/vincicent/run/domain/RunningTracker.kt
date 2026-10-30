@@ -15,7 +15,7 @@ import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
-import kotlinx.coroutines.flow.zip
+import kotlinx.coroutines.flow.map
 import kotlin.math.roundToInt
 import kotlin.time.Duration
 import kotlin.time.Duration.Companion.seconds
@@ -81,10 +81,12 @@ class RunningTracker(
                     emit(location)
                 }
             }
-            .zip(elapsedTime) { location, elapsedTime ->
+            .map { location ->
+                // Read the timer's current value: zipping with the 200 ms timer could pair
+                // a location with a stale tick.
                 LocationTimestamp(
                     location = location,
-                    durationTimestamp = elapsedTime
+                    durationTimestamp = elapsedTime.value
                 )
             }
             .onEach { location ->

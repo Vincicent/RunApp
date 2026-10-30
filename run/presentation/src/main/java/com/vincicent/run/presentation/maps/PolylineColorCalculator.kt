@@ -5,6 +5,7 @@ import androidx.compose.ui.graphics.toArgb
 import androidx.core.graphics.ColorUtils
 import com.vincicent.core.domain.location.LocationTimestamp
 import kotlin.math.abs
+import kotlin.time.DurationUnit
 
 object PolylineColorCalculator {
 
@@ -13,8 +14,8 @@ object PolylineColorCalculator {
         location2: LocationTimestamp
     ) : Color {
         val distanceMeters = location1.location.location.distanceTo(location2.location.location)
-        val timeDiff = abs((location2.durationTimestamp - location1.durationTimestamp).inWholeSeconds)
-        val speedKmh = (distanceMeters / timeDiff) * 3.6
+        val timeDiff = abs((location2.durationTimestamp - location1.durationTimestamp).toDouble(DurationUnit.SECONDS))
+        val speedKmh = if (timeDiff == 0.0) 0.0 else (distanceMeters / timeDiff) * 3.6
 
         return interpolateColor(
             speedKmh = speedKmh,

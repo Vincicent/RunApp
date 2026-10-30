@@ -5,7 +5,7 @@ import com.vincicent.core.presentation.ui.formatted
 import com.vincicent.core.presentation.ui.toFormattedKm
 import com.vincicent.core.presentation.ui.toFormattedKmh
 import kotlin.time.Duration
-import kotlin.time.Duration.Companion.seconds
+import kotlin.time.Duration.Companion.minutes
 import kotlin.time.DurationUnit
 
 fun Duration.toFormattedTotalTime(): String {
@@ -22,6 +22,6 @@ fun AnalyticsValues.toAnalyticsDashboardState(): AnalyticsDashboardState {
         totalTimeRun = totalTimeRun.toFormattedTotalTime(),
         fastestEverRun = fastestEverRun.toFormattedKmh(),
         avgDistance = (avgDistancePerRun / 1000.0).toFormattedKm(),
-        avgPace = avgPacePerRun.seconds.formatted()
+        avgPace = avgPacePerRun.minutes.formatted()
     )
 }
